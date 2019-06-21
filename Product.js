@@ -108,27 +108,7 @@ const ProductCrud={
     //         } 
     // },
 
-    uploadCategories(req,res,categories){
-        for(let obj of categories){
-            var halfobj=new Products.Products({categoryId:obj.categoryId,
-                categoryName:obj.categoryName,
-                childIds:obj.childIds,
-                subcategory:[]
-            });
-            halfobj.save();
-        }
-    },
-    uploadSubcategories(req,res,subcategories){
-        for(let obj1 of subcategories){
-            var halfobj1=new Products.SubCat({
-                subcategoryId:obj1.subcategoryId,
-                subcategoryName:obj1.subcategoryName,
-                childIds:obj1.childIds,
-                products:[]});
-            halfobj1.save();
-        }
-
-    },
+    
     async commitWithRetry(session) {
         try {
           await session.commitTransaction();
@@ -151,7 +131,7 @@ const ProductCrud={
     async uploadProducts(req,res,categories,subcategories,products,subProdcuts){
         try{
         var session= await Products.Products.startSession();
-        console.log("came hweer")
+        console.log("came here")
         session.startTransaction({
             readConcern: { level: 'snapshot' },
             writeConcern: { w: 'majority' },
