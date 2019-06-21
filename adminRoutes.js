@@ -192,7 +192,7 @@ adminRoutes.post('/upload',function(req,res){
             //var finalJson=joinExcelData(categories,subcategory);
             //console.log(finalJson);
             //console.log("we were here1")
-            productCrud.uploadProducts(req,res,categories,subcategory,products,subProducts);
+            productCrud.uploadProducts(req,res,categories,subcategory,products,subProducts);       //fn leading to transactions
             }
             
 
